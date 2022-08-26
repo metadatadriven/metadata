@@ -1,2 +1,2 @@
 # metadata
-metadata used as part of Domino demo
+metadata and editor used as part of Domino demo
