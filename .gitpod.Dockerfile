@@ -15,7 +15,7 @@ RUN sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu fo
 RUN sudo apt-get update
 
 # Install R
-RUN apt-get install r-base -y
+RUN sudo apt-get install r-base -y
 
 # Install build-essential to be able to compile packages
 RUN sudo apt install build-essential -y
