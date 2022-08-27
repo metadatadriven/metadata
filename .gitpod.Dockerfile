@@ -19,3 +19,6 @@ RUN sudo apt-get install r-base -y
 
 # Install build-essential to be able to compile packages
 RUN sudo apt install build-essential -y
+
+# Install language server to support vscode extension
+RUN sudo R -e 'install.packages("languageserver", repos="https://cloud.r-project.org/")'

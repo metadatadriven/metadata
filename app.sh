@@ -9,5 +9,8 @@ R -e 'install.packages("logger", lib = Sys.getenv("R_LIBS_USER"))'
 R -e 'install.packages(c("ggExtra", "rmarkdown"), lib = Sys.getenv("R_LIBS_USER"))'
 R -e 'install.packages("shidashi", lib = Sys.getenv("R_LIBS_USER"))'
 
+# get the current directory
+export thisdir=$(pwd)
+
 # START SHINY APP
-R -e 'shiny::runApp("./src", port=8888, host="0.0.0.0")'
+R -e 'shiny::runApp(file.path(Sys.getenv("thisdir"),"src"), port=8888, host="0.0.0.0")'
