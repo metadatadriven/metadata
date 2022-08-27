@@ -1,6 +1,6 @@
 # You can find the new timestamped tags here: https://hub.docker.com/r/gitpod/workspace-full/tags
-
-FROM gitpod/workspace-full:2022-08-26-10-53-43 # Ubuntu 20.04.4 LTS
+# Ubuntu 20.04.4 LTS
+FROM gitpod/workspace-full:2022-08-26-10-53-43
 ##FROM r-base:4.2.1
 
 # Install R
