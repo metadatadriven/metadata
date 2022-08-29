@@ -9,8 +9,19 @@ R -e 'install.packages("logger", lib = Sys.getenv("R_LIBS_USER"))'
 R -e 'install.packages(c("ggExtra", "rmarkdown"), lib = Sys.getenv("R_LIBS_USER"))'
 R -e 'install.packages("shidashi", lib = Sys.getenv("R_LIBS_USER"))'
 
-# get the current directory
-export thisdir=$(pwd)
+# try to establish which environment we are running in
+runenv = "UNKNOWN"
+runpath=$(pwd)
+if [[ "$GITPOD_REPO_ROOT" != "" ]]; then
+  echo "Running in GITPOD environment"
+  runenv = "GITPOD"
+  runpath = $GITPOD_REPO_ROOT
+fi
+if [[ "$DOMINO_WORKING_DIR" != "" ]]; then
+  echo "Running in DOMINO environment"
+  runenv = "DOMINO"
+  runpath = $DOMINO_WORKING_DIR
+fi
 
 # START SHINY APP
-R -e 'shiny::runApp(file.path(Sys.getenv("thisdir"),"src"), port=8888, host="0.0.0.0")'
+R -e 'shiny::runApp(file.path(Sys.getenv("runpath"),"src"), port=8888, host="0.0.0.0")'
