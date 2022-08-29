@@ -10,17 +10,17 @@ R -e 'install.packages(c("ggExtra", "rmarkdown"), lib = Sys.getenv("R_LIBS_USER"
 R -e 'install.packages("shidashi", lib = Sys.getenv("R_LIBS_USER"))'
 
 # try to establish which environment we are running in
-runenv = "UNKNOWN"
-runpath=$(pwd)
+export runenv="UNKNOWN"
+export runpath=$(pwd)
 if [[ "$GITPOD_REPO_ROOT" != "" ]]; then
   echo "Running in GITPOD environment"
-  runenv = "GITPOD"
-  runpath = $GITPOD_REPO_ROOT
+  export runenv="GITPOD"
+  export runpath=$GITPOD_REPO_ROOT
 fi
 if [[ "$DOMINO_WORKING_DIR" != "" ]]; then
   echo "Running in DOMINO environment"
-  runenv = "DOMINO"
-  runpath = $DOMINO_WORKING_DIR
+  export runenv="DOMINO"
+  export runpath=$DOMINO_WORKING_DIR
 fi
 
 # START SHINY APP
